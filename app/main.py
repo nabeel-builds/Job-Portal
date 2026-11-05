@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.db.session import get_db, engine, Base
 from app import models
-from app.routers import auth
+from app.routers import auth, companies, jobs
 
 
 
@@ -25,3 +25,5 @@ def db_health(db: Session = Depends(get_db)):
 
 
 app.include_router(auth.router)
+app.include_router(companies.router)
+app.include_router(jobs.router)
